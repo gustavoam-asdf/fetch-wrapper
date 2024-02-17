@@ -1,0 +1,18 @@
+{
+	"name": "@gam-test/fetch-wrapper",
+	"version": "0.0.1",
+	"description": "A simple fetch wrapper for better error handling and less response context",
+	"main": "index.js",
+	"type": "module",
+	"exports": "./lib/index.js",
+	"scripts": {
+		"build": "tsup --dts"
+	},
+	"keywords": [],
+	"author": "Gustavo Atencio",
+	"license": "MIT",
+	"devDependencies": {
+		"tsup": "8.0.2",
+		"typescript": "5.3.3"
+	}
+}
