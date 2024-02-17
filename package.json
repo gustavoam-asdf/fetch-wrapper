@@ -8,7 +8,12 @@
 	"scripts": {
 		"build": "tsup --dts"
 	},
-	"keywords": [],
+	"keywords": [
+		"fetch",
+		"fetch wrapper",
+		"fetch error handling",
+		"axios alternative"
+	],
 	"author": "Gustavo Atencio",
 	"license": "MIT",
 	"devDependencies": {
