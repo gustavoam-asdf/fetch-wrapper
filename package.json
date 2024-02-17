@@ -1,6 +1,6 @@
 {
 	"name": "@gam-test/fetch-wrapper",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A simple fetch wrapper for better error handling and less response context",
 	"type": "module",
 	"exports": "./lib/index.js",
