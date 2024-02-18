@@ -7,7 +7,7 @@ import { PatchHttpClient } from "./http/PatchHttpClient.js"
 import { PostHttpClient } from "./http/PostHttpClient.js"
 import { PutHttpClient } from "./http/PutHttpClient.js"
 
-type ClientManagerConfig = ClientConfig<never>
+type ClientManagerConfig = Omit<ClientConfig<never>, "bodyParser">
 
 type Params<R> = {
 	baseUrl: string
