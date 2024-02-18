@@ -1,5 +1,5 @@
-import { ClientConfig, HttpClient } from "./HttpClient.js"
-
+import { ClientConfig } from "./ClientConfig.js"
+import { HttpClient } from "./HttpClient.js"
 import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap.js"
 
 export class GetHttpClient extends HttpClient {

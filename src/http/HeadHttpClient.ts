@@ -1,9 +1,9 @@
-import { ClientConfig, HttpClient } from "./HttpClient.js"
-
+import { ClientConfigWithoutBody } from "./ClientConfig.js"
+import { HttpClient } from "./HttpClient.js"
 import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap.js"
 
 export class HeadHttpClient extends HttpClient {
-	async connect<R>(config: ClientConfig<R>) {
+	async connect<R>(config: ClientConfigWithoutBody<R>) {
 		const response = await fetch(`${this.url}`, {
 			...config,
 			method: "HEAD",

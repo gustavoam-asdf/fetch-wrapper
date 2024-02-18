@@ -1,4 +1,4 @@
-import { ClientConfig, ClientConfigWithData } from "./http/HttpClient.js"
+import { BodyParser, ClientConfig, ClientConfigWithData, ClientConfigWithDataWithoutBody, ClientConfigWithoutBody } from "./http/ClientConfig.js"
 
 import { DeleteHttpClient } from "./http/DeleteHttpClient.js"
 import { GetHttpClient } from "./http/GetHttpClient.js"
@@ -7,21 +7,38 @@ import { PatchHttpClient } from "./http/PatchHttpClient.js"
 import { PostHttpClient } from "./http/PostHttpClient.js"
 import { PutHttpClient } from "./http/PutHttpClient.js"
 
-type Params = {
+type ClientManagerConfig = ClientConfig<never>
+
+type Params<R> = {
 	baseUrl: string
-	config?: ClientConfig<never>
+	defaultBodyParser: BodyParser<R>
+	config?: ClientManagerConfig
 }
 
-export class HttpClientManager {
+export class HttpClientManager<R> {
 	#baseUrl: string
-	#config?: ClientConfig<never>
+	#bodyParser: BodyParser<R>
+	#config?: ClientManagerConfig
 
-	constructor({ baseUrl, config }: Params) {
+	constructor({ baseUrl, defaultBodyParser, config }: Params<R>) {
 		this.#baseUrl = baseUrl
+		this.#bodyParser = defaultBodyParser
 		this.#config = config
 	}
 
-	#mergeConfig<R>(config: ClientConfig<R>): ClientConfig<R> {
+	#mergeConfig<R>(config: ClientConfig<R> | ClientConfigWithoutBody<R>): ClientConfig<R> | ClientConfigWithoutBody<R> {
+		if ("bodyParser" in config) {
+			return {
+				...this.#config,
+				...config,
+				bodyParser: config.bodyParser ?? this.#bodyParser,
+				headers: {
+					...this.#config?.headers,
+					...config?.headers,
+				},
+			}
+		}
+
 		return {
 			...this.#config,
 			...config,
@@ -32,7 +49,19 @@ export class HttpClientManager {
 		}
 	}
 
-	#mergeConfigWithData<T, R>(config: ClientConfigWithData<T, R>): ClientConfigWithData<T, R> {
+	#mergeConfigWithData<T, R>(config: ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R>): ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R> {
+		if ("bodyParser" in config) {
+			return {
+				...this.#config,
+				...config,
+				bodyParser: config.bodyParser ?? this.#bodyParser,
+				headers: {
+					...this.#config?.headers,
+					...config?.headers,
+				},
+			}
+		}
+
 		return {
 			...this.#config,
 			...config,

@@ -1,12 +1,5 @@
+import { RequestClientConfig } from "./ClientConfig.js"
 import { UnexpectedResponseException } from "../exceptions/UnexpectedResponseException.js"
-
-export type ClientConfigWithData<T, R> = Omit<RequestInit, "method" | "body"> & {
-	throwOnConnectionFailure?: boolean
-	bodyParser?: (response: Response) => Promise<R>
-	data: T
-}
-
-export type ClientConfig<R> = Omit<ClientConfigWithData<never, R>, "data">
 
 type Params = {
 	url: string
@@ -25,10 +18,17 @@ export abstract class HttpClient {
 		this.url = url
 	}
 
-	protected abstract connect<T, R>(config: ClientConfigWithData<T, R> | ClientConfig<R>): Promise<Response>
+	protected abstract connect<T, R>(config: RequestClientConfig<T, R>): Promise<Response>
 
-	async request<T, R>(config: ClientConfigWithData<T, R> | ClientConfig<R>): Promise<HttpResponse<R>> {
+	async request<T, R>(config: RequestClientConfig<T, R>): Promise<HttpResponse<R>> {
 		const response = await this.connect(config)
+
+		if (!("bodyParser" in config)) {
+			return {
+				status: response.status,
+				headers: response.headers,
+			}
+		}
 
 		if (!config.bodyParser) {
 			return {
