@@ -15,5 +15,9 @@
 		"noUncheckedIndexedAccess": true,
 		"strict": true,
 		"target": "ES2022"
-	}
+	},
+	"include": [
+		"src/**/*",
+		"lib/index.d.ts"
+	],
 }
