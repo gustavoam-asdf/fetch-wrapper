@@ -47,6 +47,7 @@ export default defineConfig(options => {
 		{
 			...commonOptions,
 			...options,
+			format: ['esm'],
 			dts: {
 				only: true,
 			},
