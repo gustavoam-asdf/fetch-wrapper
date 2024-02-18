@@ -11,27 +11,47 @@
 		"package.json"
 	],
 	"exports": {
+		"./package.json": "./package.json",
 		".": {
-			"types": "./index.d.ts",
-			"import": "./mjs/index.js",
-			"require": "./cjs/index.js"
+			"require": {
+				"types": "./cjs/index.d.ts",
+				"default": "./cjs/index.js"
+			},
+			"import": {
+				"types": "./mjs/index.d.mts",
+				"default": "./mjs/index.js"
+			}
 		},
 		"./*": {
-			"types": "./*.d.ts",
-			"import": "./mjs/*.js",
-			"require": "./cjs/*.js"
+			"require": {
+				"types": "./*.d.ts",
+				"default": "./cjs/*.js"
+			},
+			"import": {
+				"types": "./*.d.mts",
+				"default": "./mjs/*.js"
+			}
 		},
 		"./exceptions/*": {
-			"types": "./exceptions/*.d.ts",
-			"import": "./cjs/exceptions/*.mjs",
-			"require": "./cjs/exceptions/*.js"
+			"require": {
+				"types": "./cjs/exceptions/*.d.ts",
+				"default": "./cjs/exceptions/*.js"
+			},
+			"import": {
+				"types": "./mjs/exceptions/*.d.mts",
+				"default": "./mjs/exceptions/*.js"
+			}
 		},
 		"./http/*": {
-			"types": "./http/*.d.ts",
-			"import": "./mjs/http/*.mjs",
-			"require": "./cjs/http/*.js"
-		},
-		"./package.json": "./package.json"
+			"require": {
+				"types": "./cjs/http/*.d.ts",
+				"default": "./cjs/http/*.js"
+			},
+			"import": {
+				"types": "./mjs/http/*.d.mts",
+				"default": "./mjs/http/*.js"
+			}
+		}
 	},
 	"scripts": {
 		"dev": "tsup --watch",
