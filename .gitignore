@@ -2,6 +2,7 @@ node_modules/*
 
 lib/*
 dist/*
+types/*
 public/*
 
 .vscode/*

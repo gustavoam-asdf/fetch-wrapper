@@ -14,7 +14,6 @@ const commonOptions: Options = {
 	},
 	minify: isProduction,
 	bundle: isProduction,
-	dts: true,
 	shims: true,
 	skipNodeModulesBundle: true,
 	watch: !isProduction,
@@ -51,7 +50,7 @@ export default defineConfig(options => {
 			dts: {
 				only: true,
 			},
-			outDir: 'lib',
+			outDir: 'types',
 		}
 	]
 })
