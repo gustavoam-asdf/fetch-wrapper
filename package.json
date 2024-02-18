@@ -12,18 +12,18 @@
 	"exports": {
 		".": {
 			"types": "./lib/index.d.ts",
-			"import": "./lib/index.js",
-			"require": "./lib/index.cjs"
+			"import": "./lib/index.esm.js",
+			"require": "./lib/index.cjs.js"
 		},
 		"./exceptions/*": {
 			"types": "./lib/exceptions/*.d.ts",
-			"import": "./lib/exceptions/*.js",
-			"require": "./lib/exceptions/*.cjs"
+			"import": "./lib/exceptions/*.esm.js",
+			"require": "./lib/exceptions/*.cjs.js"
 		},
 		"./http/*": {
 			"types": "./lib/http/*.d.ts",
-			"import": "./lib/http/*.js",
-			"require": "./lib/http/*.cjs"
+			"import": "./lib/http/*.esm.js",
+			"require": "./lib/http/*.cjs.js"
 		},
 		"./package.json": "./package.json"
 	},

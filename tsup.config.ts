@@ -7,6 +7,11 @@ export default defineConfig({
 	clean: true,
 	dts: true,
 	format: ['cjs', 'esm'],
+	outExtension({ format }) {
+		return {
+			js: `.${format}.js`,
+		}
+	},
 	minify: isProduction,
 	bundle: isProduction,
 	skipNodeModulesBundle: true,
