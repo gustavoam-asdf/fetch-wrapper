@@ -2,7 +2,7 @@
 	"name": "@gam-test/fetch-wrapper",
 	"version": "0.2.9",
 	"description": "A simple fetch wrapper for better error handling and less response context",
-	"type": "commonjs",
+	"type": "module",
 	"files": [
 		"dist",
 		"cjs",
