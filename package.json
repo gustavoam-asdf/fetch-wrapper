@@ -12,18 +12,23 @@
 	"exports": {
 		".": {
 			"types": "./lib/index.d.ts",
-			"import": "./lib/index.mjs",
-			"require": "./lib/index.js"
+			"import": "./lib/mjs/index.js",
+			"require": "./lib/cjs/index.js"
+		},
+		"./*": {
+			"types": "./lib/*.d.ts",
+			"import": "./lib/mjs/*.js",
+			"require": "./lib/cjs/*.js"
 		},
 		"./exceptions/*": {
 			"types": "./lib/exceptions/*.d.ts",
-			"import": "./lib/exceptions/*.mjs",
-			"require": "./lib/exceptions/*.js"
+			"import": "./lib/cjs/exceptions/*.mjs",
+			"require": "./lib/cjs/exceptions/*.js"
 		},
 		"./http/*": {
 			"types": "./lib/http/*.d.ts",
-			"import": "./lib/http/*.mjs",
-			"require": "./lib/http/*.js"
+			"import": "./lib/mjs/http/*.mjs",
+			"require": "./lib/cjs/http/*.js"
 		},
 		"./package.json": "./package.json"
 	},

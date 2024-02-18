@@ -9,9 +9,9 @@
 			"ESNext",
 			"DOM"
 		],
-		"module": "ES2022",
+		"module": "NodeNext",
 		"moduleDetection": "force",
-		"moduleResolution": "Bundler",
+		"moduleResolution": "NodeNext",
 		"noUncheckedIndexedAccess": true,
 		"strict": true,
 		"target": "ES2022"
