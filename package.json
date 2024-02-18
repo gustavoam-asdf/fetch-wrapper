@@ -4,36 +4,37 @@
 	"description": "A simple fetch wrapper for better error handling and less response context",
 	"type": "commonjs",
 	"files": [
-		"lib",
 		"dist",
-		"index.d.ts",
+		"cjs",
+		"mjs",
+		"**/*.d.ts",
 		"package.json"
 	],
 	"exports": {
 		".": {
-			"types": "./lib/index.d.ts",
-			"import": "./lib/mjs/index.js",
-			"require": "./lib/cjs/index.js"
+			"types": "./index.d.ts",
+			"import": "./mjs/index.js",
+			"require": "./cjs/index.js"
 		},
 		"./*": {
-			"types": "./lib/*.d.ts",
-			"import": "./lib/mjs/*.js",
-			"require": "./lib/cjs/*.js"
+			"types": "./*.d.ts",
+			"import": "./mjs/*.js",
+			"require": "./cjs/*.js"
 		},
 		"./exceptions/*": {
-			"types": "./lib/exceptions/*.d.ts",
-			"import": "./lib/cjs/exceptions/*.mjs",
-			"require": "./lib/cjs/exceptions/*.js"
+			"types": "./exceptions/*.d.ts",
+			"import": "./cjs/exceptions/*.mjs",
+			"require": "./cjs/exceptions/*.js"
 		},
 		"./http/*": {
-			"types": "./lib/http/*.d.ts",
-			"import": "./lib/mjs/http/*.mjs",
-			"require": "./lib/cjs/http/*.js"
+			"types": "./http/*.d.ts",
+			"import": "./mjs/http/*.mjs",
+			"require": "./cjs/http/*.js"
 		},
 		"./package.json": "./package.json"
 	},
 	"scripts": {
-		"dev": "tsup",
+		"dev": "tsup --watch",
 		"build": "env NODE_ENV=production tsup"
 	},
 	"keywords": [
