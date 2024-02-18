@@ -1,11 +1,11 @@
-import { BodyParser, ClientConfig, ClientConfigWithData, ClientConfigWithDataWithoutBody, ClientConfigWithoutBody } from "./ClientConfig.js"
+import { BodyParser, ClientConfig, ClientConfigWithData, ClientConfigWithDataWithoutBody, ClientConfigWithoutBody } from "./ClientConfig"
 
-import { DeleteHttpClient } from "./http/DeleteHttpClient.js"
-import { GetHttpClient } from "./http/GetHttpClient.js"
-import { HeadHttpClient } from "./http/HeadHttpClient.js"
-import { PatchHttpClient } from "./http/PatchHttpClient.js"
-import { PostHttpClient } from "./http/PostHttpClient.js"
-import { PutHttpClient } from "./http/PutHttpClient.js"
+import { DeleteHttpClient } from "./http/DeleteHttpClient"
+import { GetHttpClient } from "./http/GetHttpClient"
+import { HeadHttpClient } from "./http/HeadHttpClient"
+import { PatchHttpClient } from "./http/PatchHttpClient"
+import { PostHttpClient } from "./http/PostHttpClient"
+import { PutHttpClient } from "./http/PutHttpClient"
 
 type ClientManagerConfig = Omit<ClientConfig<never>, "bodyParser">
 

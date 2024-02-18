@@ -1,6 +1,6 @@
-import { ClientConfig } from "../ClientConfig.js"
-import { HttpClient } from "../HttpClient.js"
-import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap.js"
+import { ClientConfig } from "../ClientConfig"
+import { HttpClient } from "../HttpClient"
+import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap"
 
 export class GetHttpClient extends HttpClient {
 	async connect<R>(config: ClientConfig<R>) {

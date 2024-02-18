@@ -1,6 +1,6 @@
-import { ClientConfigWithoutBody } from "../ClientConfig.js"
-import { HttpClient } from "../HttpClient.js"
-import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap.js"
+import { ClientConfigWithoutBody } from "../ClientConfig"
+import { HttpClient } from "../HttpClient"
+import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap"
 
 export class HeadHttpClient extends HttpClient {
 	async connect<R>(config: ClientConfigWithoutBody<R>) {
