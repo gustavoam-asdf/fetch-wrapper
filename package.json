@@ -4,7 +4,8 @@
 	"description": "A simple fetch wrapper for better error handling and less response context",
 	"type": "module",
 	"files": [
-		"lib"
+		"lib",
+		"dist"
 	],
 	"exports": {
 		"types": "./lib/index.d.ts",
@@ -12,7 +13,8 @@
 		"require": "./lib/index.cjs"
 	},
 	"scripts": {
-		"build": "tsup"
+		"dev": "tsup",
+		"build": "env NODE_ENV=production tsup"
 	},
 	"keywords": [
 		"fetch",

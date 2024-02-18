@@ -12,6 +12,6 @@ export default defineConfig({
 	skipNodeModulesBundle: true,
 	watch: !isProduction,
 	target: 'es2022',
-	outDir: 'lib',
+	outDir: isProduction ? 'dist' : 'lib',
 	entry: ['src/**/*.ts'],
 })
