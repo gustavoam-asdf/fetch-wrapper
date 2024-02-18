@@ -22,6 +22,6 @@ Copy-Item -Path $types_dir/* -Destination $dir_to_publish/dist/mjs -Recurse -For
 
 Write-Host "Copied files to $dir_to_publish"
 
-#Set-Location $dir_to_publish
+Set-Location $dir_to_publish
 
-#pnpm publish
+pnpm publish
