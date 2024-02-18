@@ -26,7 +26,7 @@ export class HttpClientManager<R> {
 		this.#config = config
 	}
 
-	#mergeConfig<R>(config: ClientConfig<R> | ClientConfigWithoutBody<R>): ClientConfig<R> | ClientConfigWithoutBody<R> {
+	#mergeConfig(config: ClientConfig<R> | ClientConfigWithoutBody<R>): ClientConfig<R> | ClientConfigWithoutBody<R> {
 		if ("bodyParser" in config) {
 			return {
 				...this.#config,
@@ -49,7 +49,7 @@ export class HttpClientManager<R> {
 		}
 	}
 
-	#mergeConfigWithData<T, R>(config: ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R>): ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R> {
+	#mergeConfigWithData<T>(config: ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R>): ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R> {
 		if ("bodyParser" in config) {
 			return {
 				...this.#config,

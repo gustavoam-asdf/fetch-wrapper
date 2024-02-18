@@ -2,7 +2,7 @@ export type BodyParser<R> = (response: Response) => Promise<R>
 
 export type ClientConfigWithData<T, R> = Omit<RequestInit, "method" | "body"> & {
 	throwOnConnectionFailure?: boolean
-	bodyParser: BodyParser<R>
+	bodyParser?: BodyParser<R>
 	data: T
 }
 
