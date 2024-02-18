@@ -1,6 +1,6 @@
-import { ClientConfigWithData } from "../ClientConfig"
-import { HttpClient } from "../HttpClient"
-import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap"
+import { ClientConfigWithData } from "../ClientConfig.js"
+import { HttpClient } from "../HttpClient.js"
+import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap.js"
 
 export class PatchHttpClient extends HttpClient {
 	async connect<T, R>({ data, ...config }: ClientConfigWithData<T, R>) {

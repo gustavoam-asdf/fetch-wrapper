@@ -1,7 +1,7 @@
-import { BadRequestException } from "./BadRequestException"
-import { InternalServerErrorException } from "./InternalServerErrorException"
-import { NotFoundException } from "./NotFoundException"
-import { UnauthorizedException } from "./UnauthorizedException"
+import { BadRequestException } from "./BadRequestException.js"
+import { InternalServerErrorException } from "./InternalServerErrorException.js"
+import { NotFoundException } from "./NotFoundException.js"
+import { UnauthorizedException } from "./UnauthorizedException.js"
 
 export const statusCodeExceptionsMap = new Map([
 	[400, BadRequestException],

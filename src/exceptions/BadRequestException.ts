@@ -1,4 +1,4 @@
-import { RequestException } from "./RequestException"
+import { RequestException } from "./RequestException.js"
 
 type Params = {
 	url: string
