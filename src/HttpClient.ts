@@ -1,5 +1,5 @@
 import { RequestClientConfig } from "./ClientConfig.js"
-import { UnexpectedResponseException } from "../exceptions/UnexpectedResponseException.js"
+import { UnexpectedResponseException } from "./exceptions/UnexpectedResponseException.js"
 
 type Params = {
 	url: string

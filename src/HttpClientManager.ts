@@ -1,4 +1,4 @@
-import { BodyParser, ClientConfig, ClientConfigWithData, ClientConfigWithDataWithoutBody, ClientConfigWithoutBody } from "./http/ClientConfig.js"
+import { BodyParser, ClientConfig, ClientConfigWithData, ClientConfigWithDataWithoutBody, ClientConfigWithoutBody } from "./ClientConfig.js"
 
 import { DeleteHttpClient } from "./http/DeleteHttpClient.js"
 import { GetHttpClient } from "./http/GetHttpClient.js"

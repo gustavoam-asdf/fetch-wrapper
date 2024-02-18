@@ -1,5 +1,5 @@
-import { ClientConfigWithData } from "./ClientConfig.js"
-import { HttpClient } from "./HttpClient.js"
+import { ClientConfigWithData } from "../ClientConfig.js"
+import { HttpClient } from "../HttpClient.js"
 import { statusCodeExceptionsMap } from "../exceptions/statusCodeExceptionsMap.js"
 
 export class PostHttpClient extends HttpClient {
