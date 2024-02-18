@@ -10,9 +10,21 @@
 		"package.json"
 	],
 	"exports": {
-		"types": "./lib/index.d.ts",
-		"import": "./lib/index.js",
-		"require": "./lib/index.cjs"
+		".": {
+			"types": "./lib/index.d.ts",
+			"import": "./lib/index.js",
+			"require": "./lib/index.cjs"
+		},
+		"./exceptions/*": {
+			"types": "./lib/exceptions/*.d.ts",
+			"import": "./lib/exceptions/*.js",
+			"require": "./lib/exceptions/*.cjs"
+		},
+		"./http/*": {
+			"types": "./lib/http/*.d.ts",
+			"import": "./lib/http/*.js",
+			"require": "./lib/http/*.cjs"
+		}
 	},
 	"scripts": {
 		"dev": "tsup",
