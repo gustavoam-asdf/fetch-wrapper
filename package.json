@@ -1,8 +1,8 @@
 {
 	"name": "@gam-test/fetch-wrapper",
-	"version": "0.2.6",
+	"version": "0.2.7",
 	"description": "A simple fetch wrapper for better error handling and less response context",
-	"type": "module",
+	"type": "commonjs",
 	"files": [
 		"lib",
 		"dist",
@@ -12,18 +12,18 @@
 	"exports": {
 		".": {
 			"types": "./lib/index.d.ts",
-			"import": "./lib/index.esm.js",
-			"require": "./lib/index.cjs.js"
+			"import": "./lib/index.mjs",
+			"require": "./lib/index.js"
 		},
 		"./exceptions/*": {
 			"types": "./lib/exceptions/*.d.ts",
-			"import": "./lib/exceptions/*.esm.js",
-			"require": "./lib/exceptions/*.cjs.js"
+			"import": "./lib/exceptions/*.mjs",
+			"require": "./lib/exceptions/*.js"
 		},
 		"./http/*": {
 			"types": "./lib/http/*.d.ts",
-			"import": "./lib/http/*.esm.js",
-			"require": "./lib/http/*.cjs.js"
+			"import": "./lib/http/*.mjs",
+			"require": "./lib/http/*.js"
 		},
 		"./package.json": "./package.json"
 	},
