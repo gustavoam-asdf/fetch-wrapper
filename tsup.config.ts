@@ -14,6 +14,7 @@ const commonOptions: Options = {
 	},
 	minify: isProduction,
 	bundle: isProduction,
+	dts: true,
 	shims: true,
 	skipNodeModulesBundle: true,
 	watch: !isProduction,
@@ -26,14 +27,12 @@ export default defineConfig(options => {
 		{
 			...commonOptions,
 			...options,
-			dts: isProduction,
 			format: ['cjs'],
 			outDir: isProduction ? 'dist/cjs' : 'lib/cjs',
 		},
 		{
 			...commonOptions,
 			...options,
-			dts: isProduction,
 			format: ['esm'],
 			outDir: isProduction ? 'dist/mjs' : 'lib/mjs',
 		},
