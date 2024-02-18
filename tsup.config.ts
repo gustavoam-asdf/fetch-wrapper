@@ -21,36 +21,26 @@ const commonOptions: Options = {
 	entry: ['src/**/*.ts'],
 }
 
-export default defineConfig(options => {
-	const baseOptionList: Options[] = [
-		{
-			...commonOptions,
-			...options,
-			format: ['cjs'],
-			outDir: isProduction ? 'dist/cjs' : 'lib/cjs',
+export default defineConfig(options => [
+	{
+		...commonOptions,
+		...options,
+		format: ['cjs'],
+		outDir: isProduction ? 'dist/cjs' : 'lib/cjs',
+	},
+	{
+		...commonOptions,
+		...options,
+		format: ['esm'],
+		outDir: isProduction ? 'dist/mjs' : 'lib/mjs',
+	},
+	{
+		...commonOptions,
+		...options,
+		format: ['esm'],
+		dts: {
+			only: true,
 		},
-		{
-			...commonOptions,
-			...options,
-			format: ['esm'],
-			outDir: isProduction ? 'dist/mjs' : 'lib/mjs',
-		},
-	]
-
-	if (isProduction) {
-		return baseOptionList
+		outDir: 'types',
 	}
-
-	return [
-		...baseOptionList,
-		{
-			...commonOptions,
-			...options,
-			format: ['esm'],
-			dts: {
-				only: true,
-			},
-			outDir: 'types',
-		}
-	]
-})
+])
