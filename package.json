@@ -3,6 +3,9 @@
 	"version": "0.1.0",
 	"description": "A simple fetch wrapper for better error handling and less response context",
 	"type": "module",
+	"files": [
+		"lib"
+	],
 	"exports": {
 		"types": "./lib/index.d.ts",
 		"import": "./lib/index.js",
