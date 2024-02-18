@@ -5,7 +5,9 @@
 	"type": "module",
 	"files": [
 		"lib",
-		"dist"
+		"dist",
+		"index.d.ts",
+		"package.json"
 	],
 	"exports": {
 		"types": "./lib/index.d.ts",
