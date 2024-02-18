@@ -5,6 +5,7 @@
 		"esModuleInterop": true,
 		"incremental": false,
 		"isolatedModules": true,
+		"resolveJsonModule": true,
 		"lib": [
 			"ESNext",
 			"DOM"
