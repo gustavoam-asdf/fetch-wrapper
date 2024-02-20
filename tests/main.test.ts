@@ -1,7 +1,7 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, expectTypeOf, test } from 'vitest'
 
-import { GetHttpClient } from '../src/http/GetHttpClient.js'
 import { HttpClientManager } from '../src/HttpClientManager.js'
+import { throws } from 'assert'
 
 let httpClient: HttpClientManager
 
@@ -19,9 +19,17 @@ beforeAll(() => {
 	})
 })
 
+type Todo = {
+	userId: number
+	id: number
+	title: string
+	completed: boolean
+}
+
 
 test('should return a response', async () => {
-	const response = await httpClient.get("/todos/1")
-	console.log(response)
-	expect(response).toBeDefined()
+	const response = await httpClient.get<Todo>("/todos/1")
+
+	expectTypeOf(response.status).toBeNumber()
+	expect(response.body).toBeDefined()
 })
