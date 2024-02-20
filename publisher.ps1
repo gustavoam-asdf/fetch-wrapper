@@ -9,6 +9,20 @@ if (Test-Path $dir_to_publish) {
 	Remove-Item $dir_to_publish -Recurse -Force
 }
 
+if (Test-Path $lib_dir) {
+	Remove-Item $lib_dir -Recurse -Force
+}
+
+if (Test-Path $dist_dir) {
+	Remove-Item $dist_dir -Recurse -Force
+}
+
+pnpm tsup
+
+$env:NODE_ENV = 'production'
+
+pnpm build
+
 New-Item -ItemType Directory -Force -Path $dir_to_publish
 
 Copy-Item -Path $package -Destination $dir_to_publish

@@ -16,7 +16,6 @@ const commonOptions: Options = {
 	bundle: isProduction,
 	shims: true,
 	skipNodeModulesBundle: true,
-	watch: !isProduction,
 	target: 'es2022',
 	entry: ['src/**/*.ts'],
 }
