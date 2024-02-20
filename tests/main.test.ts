@@ -31,5 +31,6 @@ test('should return a response', async () => {
 	const response = await httpClient.get<Todo>("/todos/1")
 
 	expectTypeOf(response.status).toBeNumber()
+	expectTypeOf(response.headers).toBeObject()
 	expect(response.body).toBeDefined()
 })
