@@ -9,24 +9,24 @@ import { PutHttpClient } from "./http/PutHttpClient.js"
 
 type ClientManagerConfig = Omit<ClientConfig<never>, "bodyParser">
 
-type Params<R> = {
+type Params = {
 	baseUrl: string
-	defaultBodyParser: BodyParser<R>
+	defaultBodyParser: BodyParser<unknown>
 	config?: ClientManagerConfig
 }
 
-export class HttpClientManager<R> {
+export class HttpClientManager {
 	#baseUrl: string
-	#bodyParser: BodyParser<R>
+	#bodyParser: BodyParser<unknown>
 	#config?: ClientManagerConfig
 
-	constructor({ baseUrl, defaultBodyParser, config }: Params<R>) {
+	constructor({ baseUrl, defaultBodyParser, config }: Params) {
 		this.#baseUrl = baseUrl
 		this.#bodyParser = defaultBodyParser
 		this.#config = config
 	}
 
-	#mergeConfig(config?: ClientConfig<R> | ClientConfigWithoutBody<R>): ClientConfig<R> | ClientConfigWithoutBody<R> {
+	#mergeConfig(config?: ClientConfig<unknown> | ClientConfigWithoutBody<unknown>): ClientConfig<unknown> | ClientConfigWithoutBody<unknown> {
 		if (!config) return {
 			...this.#config,
 			bodyParser: this.#bodyParser,
@@ -57,7 +57,7 @@ export class HttpClientManager<R> {
 		}
 	}
 
-	#mergeConfigWithData<T>(config?: ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R>): ClientConfigWithData<T, R> | ClientConfigWithDataWithoutBody<T, R> {
+	#mergeConfigWithData<T>(config?: ClientConfigWithData<T, unknown> | ClientConfigWithDataWithoutBody<T, unknown>): ClientConfigWithData<T, unknown> | ClientConfigWithDataWithoutBody<T, unknown> {
 		if (!config) return {
 			...this.#config,
 			data: null as T,
