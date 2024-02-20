@@ -16,7 +16,7 @@ export class PatchHttpClient extends HttpClient {
 			const responseBody = await response.json().catch(() => "Request response with non json body")
 			throw new requestException({
 				url: this.url,
-				payload: null,
+				payload: data,
 				responseBody,
 			})
 		}
