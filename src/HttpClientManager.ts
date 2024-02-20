@@ -108,7 +108,10 @@ export class HttpClientManager {
 
 		const mergedConfig = this.#mergeConfig(config)
 
-		return await client.request<never, R>(mergedConfig)
+		return await client.request<never, R>({
+			...mergedConfig,
+			bodyParser: undefined,
+		})
 	}
 
 	async post<T, R>(url: string, config?: ClientConfigWithData<T, R>) {
