@@ -50,6 +50,7 @@ export class HttpClientManager {
 		return {
 			...this.#config,
 			...config,
+			bodyParser: this.#bodyParser,
 			headers: {
 				...this.#config?.headers,
 				...config?.headers,
@@ -82,6 +83,7 @@ export class HttpClientManager {
 		return {
 			...this.#config,
 			...config,
+			bodyParser: this.#bodyParser,
 			headers: {
 				...this.#config?.headers,
 				...config?.headers,
