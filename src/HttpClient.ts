@@ -45,12 +45,36 @@ export abstract class HttpClient {
 				body,
 			}
 		} catch (error) {
+			if (!(error instanceof Error)) {
+				throw error
+			}
+
 			const content = await response.text()
-				.catch(() => "Error getting response content")
+				.catch(async () => {
+					if (!response.body) {
+						return "No response body."
+					}
+					const bodyReader = response.body.getReader()
+					const rawBody = await bodyReader.read()
+						.catch(() => {
+							undefined
+						})
+
+					if (!rawBody) {
+						return "Error getting response content"
+					}
+
+					const decoder = new TextDecoder()
+
+					return decoder.decode(rawBody.value)
+				})
+
+
 
 			throw new UnexpectedResponseException({
 				url: this.url,
-				content,
+				content: content ?? "Error getting response content",
+				cause: error,
 			})
 		}
 	}
